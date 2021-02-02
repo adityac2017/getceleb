@@ -1,0 +1,208 @@
+<section class="client-profile-section p-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <img *ngIf="!profileImage" src="assets/img/default.png"  (click)="selectImage()" class="rounded-circle profile-img  shadow" width="250px">
+        <img *ngIf="profileImage && isFullUrl == 0" src="{{imageUrl}}{{getList?getList.profileImage:''}}"  (click)="selectImage()" class="rounded-circle profile-img  shadow">
+        <img *ngIf="profileImage && isFullUrl == 1" src="{{getList?getList.profileImage:''}}"  (click)="selectImage()" class="rounded-circle profile-img  shadow">
+        <input type="file" style="display: none" id="imagebutton" name="image" accept="image/x-png,image/gif,image/jpeg" (change)="selectFile($event)" />
+      </div>
+      <div class="col-sm-12 text-center mt-4">
+        <div class="">
+          <h6 class="user-profile-name mb-2 font-weight-bold mb-3 text-white">{{getList?getList.userName:''}} </h6>
+          <h6 class=" text-white"><i class=" fa fa-envelope mr-3 text-white"></i>{{getList?getList.userEmail:''}}</h6>
+          <h6 class="text-white"><i class=" fa fa-phone mr-3 text-white"></i>+
+            <span *ngIf="userPhone == 0"></span>
+            <span *ngIf="userPhone != 0">{{userPhone}}</span>
+          </h6>
+        </div>
+        <div class="change-pswrd mt-4">
+          <button class="btn shadow-sm " data-toggle="modal" data-target="#pswrdModal">Change Password</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="my-4">
+  <div class="container">
+    <div class="row my-4">
+      <div class="col-sm-12">
+        <!-- <h3 *ngIf="getVideoList.length == 0">No Any Video</h3> -->
+        <h3>All Videos</h3>
+      </div>
+    </div>
+    <div class="row mt-4 profile-latest-row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-3 p-2" *ngFor="let val of getVideoList; let i = index">
+            <div class="card pmd-card">
+                <div class="card-header d-flex flex-row bg-white border-0 p-2">
+                    <div class="media-body" *ngIf="val.clientId.campaignType == 0">
+                      <span *ngIf="val.bookingStatus == 0">PENDING</span>
+                      <span *ngIf="val.bookingStatus == 1">ACCEPTED</span>
+                      <span *ngIf="val.bookingStatus == 2">REJECTED</span>
+                      <span *ngIf="val.bookingStatus == 3">COMPLETED</span>
+                      <!-- <h6  class="card-title text-secondary card-name">Video Requested by {{val.myName}}</h6>
+                      <h6 class="card-subtitle mb-1 font-weight-bold text-dark card-name">For {{val.theirName?val.theirName:val.myName}}</h6>
+                      <a href="https://www.instagram.com/@{{val.clientId.instagramId}}" target="_blank" class=" text-center user-profile-insta-id ">From @{{val.clientId.instagramId}} </a> -->
+                    </div>
+    
+    
+                    <div class="media-body upvideo" *ngIf="val.clientId.campaignType == 1">
+                      <span *ngIf="val.bookingStatus == 0"><p class="text-warning">Awaiting Results</p></span>
+                      <span *ngIf="val.bookingStatus == 1"><p class="text-success">Congratulations. You are the lucky winner</p></span>
+                      <span *ngIf="val.bookingStatus == 2"><p class="text-danger">Thank you for participating</p></span>
+                      <span *ngIf="val.bookingStatus == 3"><p class="text-success">Congratulations. Share the Memories</p></span>
+                      <!-- <h6  class="card-title text-secondary card-name">Donated {{val.clientId.vedioPrice}}Rs by {{val.myName}}</h6>
+                      <h6 class="card-subtitle mb-1 font-weight-bold text-dark card-name">If won {{val.theirName?val.theirName:val.myName}} </h6>
+                      <a href="https://www.instagram.com/@{{val.clientId.instagramId}}" target="_blank" class=" text-center user-profile-insta-id ">Will join the @{{val.clientId.instagramId}}'s Quarantine Party </a> -->
+                    </div>
+    
+                  </div>
+
+              <span *ngIf="val.bookingStatus == 3">
+                  <div class="pmd-card-media">
+                  <video  play=""  muted="" playsinline="" class="profile-bio-video-{{i}}">
+                      <source src="{{videoUrl}}{{val.vedio}}" type="video/mp4"></video>
+                      </div>
+              </span>
+              <span class="have-not-video" *ngIf="val.bookingFor == 2 || val.bookingStatus !=3">
+                  <div class="pmd-card-media text-center">
+                  <!-- <img height="100px" src="assets/img/Group17052x.png" width="100px"> -->
+                  <span *ngIf="val.bookingStatus == 0">
+                    <img *ngIf="val.clientId.campaignType == 1" src="assets/images/awating.png">
+                    <img *ngIf="val.clientId.campaignType == 0" src="assets/images/accpeted.png">
+                  </span>
+
+                  <span *ngIf="val.bookingStatus == 1">
+                      <img *ngIf="val.clientId.campaignType == 1" src="assets/images/congo.png">
+                      <img *ngIf="val.clientId.campaignType == 0" src="assets/images/accpeted.png">
+                    </span>
+
+                    <span *ngIf="val.bookingStatus == 2">
+                        <img *ngIf="val.clientId.campaignType == 1" src="assets/images/thanku.png">
+                        <img *ngIf="val.clientId.campaignType == 0" src="assets/images/reject.png">
+                      </span>
+
+                      <span *ngIf="val.bookingStatus == 3">
+                          <img *ngIf="val.clientId.campaignType == 1" src="assets/images/congo.png">
+                          <img *ngIf="val.clientId.campaignType == 0" src="assets/images/congo.png">
+                        </span>
+                  </div>
+              </span>
+              <div  class="card-footer text-center client-footer" *ngIf="val.bookingStatus ==3">
+                  <!-- <button  type="button" class="btn pmd-btn-flat pmd-ripple-effect text-right  btnPause btnPause-{{i}}"  (click)="pause(i)"><i class="fa fa-play card-footer-icons" aria-hidden="true"></i></button>
+                  <button  type="button" class="btn pmd-btn-flat pmd-ripple-effect text-right  btnPlay btnPlay-{{i}}"  (click)="play(i)" ><i class="fa fa-pause card-footer-icons" aria-hidden="true"></i></button> -->
+                <button  type="button" class="btn pmd-btn-flat pmd-ripple-effect text-right  btnPause btnPause-{{i}}"  (click)="pause(i)"><i class="fa fa-pause card-footer-icons" aria-hidden="true"></i></button>
+                <button type="button" class="btn pmd-btn-flat pmd-ripple-effect text-right  btnPlay btnPlay-{{i}}"  (click)="play(i)" ><i class="fa fa-play card-footer-icons" aria-hidden="true"></i></button>
+              </div>
+            </div>
+            <div class="mt-3 text-center d-flex justify-content-center flex-wrap videobom">
+              <div *ngIf="val.bookingStatus == 0" class=" badge-stroke-warning shadow-sm text-center mr-2 p-2 rounded mb-2" style="border:1px solid #ffc107;">
+                <!-- {{val.clientId.campaignType == 1?'Awaiting Results':'PENDING'}} -->
+                  <p *ngIf="val.clientId.campaignType == 1" class="text-warning"> Competition is currently running for {{val.clientId.clientName}}. We will announce the results shortly. Stay Tuned and follow {{val.clientId.clientName}} on GetCeleb for more info. </p>
+                  <p *ngIf="val.clientId.campaignType == 0" class="text-warning"> {{val.clientId.clientName}} has accepted your request. Please wait patiently while {{val.clientId.clientName}} fulfils your request. Stay Tuned and follow {{val.clientId.clientName}} on GetCeleb for more info.  </p>
+              </div>
+              <div *ngIf="val.bookingStatus == 1" class=" badge-stroke-info shadow-sm text-center mr-2 p-2 rounded mb-2" style="border:1px solid #17a2b8;">
+                <!-- {{val.clientId.campaignType == 1?'dfgfhfgthf':'ACCEPTED'}} -->
+                 <p *ngIf="val.clientId.campaignType == 1" class="tex-info"> Woohooo. You have won the {{val.clientId.clientName}} lucky draw contest. Get ready for the awesomeness that is coming to you. We will get in touch with you with the details soon…very soon. Stay Tuned and follow {{val.clientId.clientName}} on GetCeleb for more info.  </p>
+                  <p *ngIf="val.clientId.campaignType == 0" class="tex-info">Woohooo. You {{val.clientId.clientName}} have accepted your video request. Get ready for the awesomeness that is coming to you from your own favourite celebrity. {{val.clientId.clientName}} will fulfil your request soon…very soon. Stay Tuned and follow {{val.clientId.clientName}} on GetCeleb for more info.  </p>
+              </div>
+              <div *ngIf="val.bookingStatus == 2" class=" badge-stroke-danger shadow-sm text-center mr-2 p-2 rounded mb-2" style="border:1px solid #dc3545;">
+                <!-- {{val.clientId.campaignType == 1?'':'REJECTED'}} -->
+                <p *ngIf="val.clientId.campaignType == 1" class="text-danger"> We appreciate your interest in {{val.clientId.clientName}} lucky draw contest. Your contribution has helped {{val.clientId.clientName}} achieve the goal. We are currently running many more contests. We hope to see you there and help your favourite celebrity achieve their objective. </p>
+                <p *ngIf="val.clientId.campaignType == 0" class="text-danger"> We appreciate your interest in {{val.clientId.clientName}} video request. Currently {{val.clientId.clientName}} is has urgent priority and could not finish your request at the moment or your request or your request does not align with GetCeleb policy. We will refund your amount within 24-48hr. We hope that you will try our celebrities on our platform. </p>
+              </div>
+              <div *ngIf="val.bookingStatus == 3" class=" badge-stroke-success shadow-sm text-center mr-2 p-2 rounded mb-2" style="border:1px solid #28a745;">
+                <!-- {{val.clientId.campaignType == 1?'Congratulations. You are the lucky winner':'COMPLETED'}} -->
+                <p *ngIf="val.clientId.campaignType == 1" class="text-success">Woohooo. Tell us how was the experience with the {{val.clientId.clientName}} event. We hope that you enjoyed and had a great time with your favourite STAR. We will soon share memories of your interaction on our social media. Stay Tuned and follow @GetCeleb.in on Instagram. </p>
+                <p *ngIf="val.clientId.campaignType == 0" class="text-success">Woohooo. {{val.clientId.clientName}} has completed your awesome request. Now watch it, re-watch it, re-re-watch download it, share it with your friends family. Don’t forget to post this image on your facebook and Instagram account and tag @Getceleb.in to win cool prizes  </p>
+              </div>
+              <span  data-toggle="modal" data-target="#shareButtons" *ngIf="val.bookingStatus == 3" class="btn share-btn shadow-sm text-center mr-2 border" (click)="openSocial(val)"><i class="fa fa-share-alt" aria-hidden="true"></i></span>
+              <span *ngIf="val.bookingStatus == 3" class="btn share-btn shadow-sm text-center border">
+                <a href="{{videoUrl}}{{val.vedio}}" target="_blank">
+                  <i class="fa fa-download" aria-hidden="true"></i>
+                </a>
+              </span>
+              
+            </div>
+            <!-- <div class="download-btn mt-2 text-center">
+                <a  href="https://d3el26csp1xekx.cloudfront.net/v/no-wm-LSAUaI2Tk.mp4"  download>
+                  <button class="btn">DOWNLOAD</button>
+                  </a>
+            </div> -->
+          </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<div id="pswrdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 99999;">
+    <div class="modal-dialog modal-md">
+       <div class="modal-content">
+          <div class="modal-body">
+             <div class="card">
+                <div class="Card-heading info-color py-4 text-center text-white" id="nav-tab" role="tablist">
+                   <h5 class="text-white">Change Password</h5>
+                </div>
+                <div class="tab-content px-sm-0" id="nav-tabContent">
+                   <div class="card-body mt-5 pt-0 tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                      <form #sendForm="ngForm" class="text-center"  style="color: #757575;" action="#!">
+                         <div class="md-form mb-3" style="position: relative;">
+                            <input type="password"  name="userPassword" [(ngModel)]="userPassword" class="form-control" placeholder="New Password">
+                            <a href="#" class="phone_icon "><i class="fa fa-lock phn-icon "></i></a>
+                         </div>
+                         <div class="md-form mb-4" style="position: relative;">
+                            <a href="#" class="phone_icon "><i class="fa fa-lock phn-icon "></i></a>
+                            <input type="password" name="confiruserPassword" [(ngModel)]="confiruserPassword" class="form-control" placeholder="Confirm Password">
+                         </div>
+                         <button class="btn signin-btn my-4 text-white font-weight-bold" type="button" (click)="updatePass()">Save</button>
+                      </form>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+
+ <div id="shareButtons" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 99999;">
+  <div class="modal-dialog modal-md">
+     <div class="modal-content">
+        <div class="modal-body">
+          <div class="social-share">
+            <ul>
+              <li>
+                <!-- <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyoutu.be%2FO6gihaoYT-0" target="_blank" class="fb"> -->
+                  <a href="https://www.facebook.com/sharer/sharer.php?u={{videoUrl}}{{socialShareVideo}}" target="_blank" class="fb">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/intent/tweet?url={{videoUrl}}{{socialShareVideo}}" target="_blank" class="twitter">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://api.whatsapp.com/send?phone=&text={{videoUrl}}{{socialShareVideo}}" target="_blank" class="whatsapp">
+                  <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/shareArticle/?url={{videoUrl}}{{socialShareVideo}}" target="_blank" class="linkedin">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+            <input type="text" value="{{videoUrl}}{{socialShareVideo}}"   class="form-control" >
+          </div>
+        </div>
+     </div>
+  </div>
+</div>
+
+

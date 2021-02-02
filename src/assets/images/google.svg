@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="145.73" height="145.73" viewBox="0 0 145.73 145.73">
+  <defs>
+    <filter id="Ellipse_6" x="0" y="0" width="145.73" height="145.73" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#ffa4a4" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Google" transform="translate(-576 -1610)">
+    <g transform="matrix(1, 0, 0, 1, 576, 1610)" filter="url(#Ellipse_6)">
+      <circle id="Ellipse_6-2" data-name="Ellipse 6" cx="63.865" cy="63.865" r="63.865" transform="translate(9 6)" fill="#fff"/>
+    </g>
+    <g id="search" transform="translate(617 1648)">
+      <path id="Path_2" data-name="Path 2" d="M14.084,159.51l-2.212,8.258-8.085.171a31.83,31.83,0,0,1-.234-29.671h0l7.2,1.32,3.153,7.155a18.963,18.963,0,0,0,.178,12.767Z" transform="translate(0 -121.106)" fill="#fbbb00"/>
+      <path id="Path_3" data-name="Path 3" d="M292.149,208.176a31.762,31.762,0,0,1-11.327,30.715l0,0-9.066-.463-1.283-8.01a18.937,18.937,0,0,0,8.148-9.67H261.628v-12.57h30.521Z" transform="translate(-229.155 -182.337)" fill="#518ef8"/>
+      <path id="Path_4" data-name="Path 4" d="M78.387,327.557l0,0a31.785,31.785,0,0,1-47.88-9.721l10.3-8.429a18.9,18.9,0,0,0,27.232,9.675Z" transform="translate(-26.722 -271.006)" fill="#28b446"/>
+      <path id="Path_5" data-name="Path 5" d="M77.127,7.315,66.834,15.742a18.895,18.895,0,0,0-27.857,9.894L28.626,17.162h0a31.781,31.781,0,0,1,48.5-9.847Z" transform="translate(-25.071)" fill="#f14336"/>
+    </g>
+  </g>
+</svg>

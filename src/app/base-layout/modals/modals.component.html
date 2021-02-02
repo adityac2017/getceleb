@@ -1,0 +1,136 @@
+<div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 999999">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <ul class="nav nav-tabs nav-fill" role="tablist">
+            <li>
+              <a class="nav-item active py-3 btn-block" id="nav-home-tab" data-toggle="tab" href="#userSignin" role="tab" aria-controls="nav-home" aria-selected="true" (click)="clear()">Log in</a>
+            </li>
+            <li>
+              <a class="nav-item py-3 btn-block" id="nav-profile-tab" data-toggle="tab" href="#userSignup" role="tab" aria-controls="nav-profile" aria-selected="true" (click)="clear()">Register</a>
+            </li>
+          </ul>
+          <!--Card content-->
+          <div class="tab-content px-sm-0">
+            <div class="card-body mt-5 pt-0 tab-pane fade show active" id="userSignin" role="tabpanel" aria-labelledby="nav-home-tab">
+              <!-- Form -->
+              <form #sendForm="ngForm" class="text-center" style="color: #757575;" action="#!">
+                <!-- Email -->
+                <div class="md-form mb-3" style="position: relative;">
+                  <input type="text" name="userPhone" maxlength="10" [(ngModel)]="loginBody.userPhone" class="form-control enterNumber" placeholder="Mobile Number">
+                  <a href="#" class="phone_icon "><i class="fa fa-phone phn-icon "></i></a>
+                </div>
+                <!-- Password -->
+                <div class="md-form" style="position: relative;">
+                  <a href="#" class="phone_icon "><i class="fa fa-lock phn-icon "></i></a>
+                  <input type="password"  name="userPassword" [(ngModel)]="loginBody.userPassword" class="form-control" placeholder="Password">
+                </div>
+                <div class="text-right my-2">
+                  <!-- Forgot password -->
+                  <a href="javascript:void(0)" class="text-secondary" (click)="forgotModal()"  >Forgot password?</a>
+                </div>
+                <!-- Sign in button -->
+                <button class="btn btn-primary btn-block btn-rounded btn-gradient mb-3" (click)="login()" type="submit">Log in</button>
+                <div class="social-btns d-flex justify-content-center">
+                  <a href="javascript:void(0);" class="mr-3">
+                    <img src="assets/images/Facbook.svg" class="img-fluid" alt="Facebook" width="58px" (click)="signInViaFb()">
+                  </a>
+                  <a href="javascript:void(0);">
+                    <img src="assets/images/google.svg" class="img-fluid" alt="Google" width="58px" (click)="googleSignIn()">
+                  </a>
+<!--                  <button class="btn btn-facebook py-2 mr-2" (click)="signInViaFb()"><i class="fa fa-facebook mr-2" aria-hidden="true"></i>Sign in with Facebook</button>-->
+<!--                  <button class="btn btn-google py-2" (click)="googleSignIn()"><i class="fa fa-google-plus mr-2" aria-hidden="true"></i>Sign in with Google</button>-->
+                </div>
+                <!-- Register -->
+              </form>
+              <!-- Form -->
+            </div>
+            <div class="card-body mt-5 pt-0 tab-pane fade e" id="userSignup" role="tabpanel" aria-labelledby="nav-profile-tab">
+              <!-- Form -->
+              <form #sendForm1="ngForm"  class="text-center" style="color: #757575;" action="#!">
+                <!-- Email -->
+                <div class="md-form mb-3" style="position: relative;">
+                  <input type="text" name="userName" [(ngModel)]="signup.userName" class="form-control" placeholder="User Name">
+                  <a href="#" class="phone_icon "><i class="fa fa-user phn-icon "></i></a>
+                </div>
+                <!-- Password -->
+                <div class="md-form mb-3" style="position: relative;">
+                  <a href="#" class="phone_icon "><i class="fa fa-envelope phn-icon "></i></a>
+                  <input type="text"  name="userEmail" [(ngModel)]="signup.userEmail" class="form-control" placeholder="Email">
+                </div>
+                <div class="md-form mb-3" style="position: relative;">
+                  <a href="#" class="phone_icon "><i class="fa fa-phone phn-icon "></i></a>
+                  <input type="text" name="userPhone" [(ngModel)]="signup.userPhone" class="form-control enterNumber" placeholder="Mobile Number">
+                </div>
+                <div class="md-form mb-3" style="position: relative;">
+                  <a href="#" class="phone_icon "><i class="fa fa-lock phn-icon "></i></a>
+                  <input type="password"  name="userPassword" [(ngModel)]="signup.userPassword" class="form-control" placeholder="Password">
+                </div>
+                <!-- Sign in button -->
+                <button class="btn btn-primary btn-block btn-rounded btn-gradient" type="button" (click)="signUp()" >{{flags.isSubmitted?'Registering....':'Register'}}</button>
+              </form>
+              <!-- Form -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="forgotModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 99999;">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+            <div class="modal-body">
+              <div class="card">
+                  <div class="card-heading info-color p-4 text-center text-white" id="nav-tab" role="tablist">
+                      <i class="fa fa-envelope text-white fa-4x"></i>
+                      <h6 class="mt-2">We need your registration email address to send an OTP for verification first.</h6>
+                    </div>
+
+                    <div class="tab-content px-sm-0" id="nav-tabContent">
+                    <div class="card-body mt-5 pt-0 tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                      <!-- Form -->
+                      <form #sendEmailform="ngForm" class="Forgot-form" style="color: #757575;" >
+                        <!-- Email -->
+                        <div class="md-form form-group">
+                          <label>Enter Email</label>
+                          <input type="email"  name="sendemail" [(ngModel)]="sendemail" class="form-control" placeholder="Email">
+                        </div>
+                        <button class="btn btn-primary btn-block btn-rounded btn-gradient" (click)="sendEmial()"  type="submit">SEND</button>
+                      </form>
+                      <form #sendOtpform="ngForm" class="sendOtpform">
+                        <div class="md-form mb-3">
+                          <label  style="color: #17a2b8; font-weight: 600;">Verify OTP:</label>
+                          <input type="text"  name="otpnumber" [(ngModel)]="otpnumber" class="form-control" placeholder="4 digit OTP number">
+                          <div class="">
+                            <button class="btn btn-primary btn-block btn-rounded btn-gradient" (click)="enterotp()" type="submit">VERIFY</button>
+                          </div>
+                        </div>
+                      </form>
+                      <form #newpassword="ngForm" class="newpassword">
+                        <div class="md-form mb-3">
+                          <label  style="color: #17a2b8; font-weight: 600;">Reset Password:</label>
+                          <input type="password" name="password" [(ngModel)]="password"  class="form-control" placeholder="New Password">
+                           <div class="">
+                            <button class="btn btn-primary btn-block btn-rounded btn-gradient" (click)="newpasswordfun()" type="submit">RESET % LOGIN</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>

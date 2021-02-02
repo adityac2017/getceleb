@@ -1,0 +1,76 @@
+.swiper-container{
+    padding-left: 50px;
+    padding-right: 50px; 
+}
+.celeblist{
+    display: flex;
+    overflow: auto;
+}
+.celeblist li{
+    margin: 0px 19px;
+}
+.celeblist li:first-child{
+    margin-left: 0;
+}
+.celeblist li .card{
+    max-width: 185px;
+    min-width: 185px;
+    background: transparent;
+    border: 0;
+    border-radius: 12px;
+}
+.celebcol{
+    min-width: 86%;
+    max-width: 86%;
+    margin: auto;
+}
+@media (max-width:1199px){
+    .celebcol{
+        min-width: 90%;
+        max-width: 90%;
+        margin: auto;
+    }
+}
+@media (max-width:991px){
+    .celebcol{
+        min-width: 100%;
+        max-width: 100%;
+        margin: auto;
+    }
+    .celeblist{
+        display: flex;
+        overflow: auto;
+    }
+    .celeblist li .card{
+        max-width: 165px;
+        min-width: 165px;
+        background: transparent;
+        border: 0;
+        border-radius: 12px;
+    }
+    .celeblist li{
+        margin: 0px 9px;
+    }
+}
+@media (max-width:575px){
+    .celeblist li .card{
+        max-width: 145px;
+        min-width: 145px;
+        background: transparent;
+        border: 0;
+        border-radius: 12px;
+    }
+    .celb-img {
+        overflow: hidden;
+        display: inline-block;
+        min-height: 211px;
+        border-radius: 12px;
+    }
+    .celeblist li{
+        margin: 0px 6px;
+    }
+    .client-name {
+        font-size: 18px;
+        font-weight: 700;
+    }
+}

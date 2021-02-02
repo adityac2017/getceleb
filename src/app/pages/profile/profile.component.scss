@@ -1,0 +1,147 @@
+.social-share{
+    ul{
+        display: flex;
+        li{
+            margin-right: 10px;
+            a{
+                height: 42px;
+                width: 42px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 32px;
+                border-radius: 32px;
+                background: #f2f2f2;
+                font-size: 16px;
+                color: #000;
+                i{
+                    padding: 0;
+                }
+                &.fb{
+                    background: #4267B2;
+                    color: #fff;
+                }
+                &.twitter{
+                    background: #00acee;
+                    color: #fff;
+                }
+                
+                &.linkedin{
+                    background: #4267B2;
+                    color: #fff;
+                }
+                &.whatsapp{
+                    background: #25D367;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+.badge{
+    border-radius: 20px;
+    border: 0;
+    padding: 8px 13px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: open Sans;
+    border: 1px solid #000;
+    &.badge-stroke-success{
+        color: #28a745;
+        border-color: #28a745;
+    }
+    &.badge-stroke-info{
+        color: #17a2b8;
+        border-color: #17a2b8;
+    }
+    &.badge-stroke-warning{
+        color: #ffc107;
+        border-color: #ffc107;
+    }
+    &.badge-stroke-danger{
+        color: #dc3545;
+        border-color: #dc3545; 
+    }
+}
+.btn, .badge{
+    min-height: 40px;
+}
+.badge{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.media-body h6{
+    font-size: 14px;
+}
+.media-body a{
+    font-size: 15px;
+}
+.profile-latest-row .card {
+    border-radius: 20px 20px 0px 0px;
+    margin-bottom: 12px ;
+}
+.videobom p{
+    line-height: 1.7;
+    margin-bottom: 0;
+    text-align: left;
+}
+.have-not-video{
+    max-height: 450px;
+    min-height: 450px;
+}
+.upvideo p{
+    font-size: 16px;
+    line-height: 1.3;
+    margin-bottom: 5px;
+    text-align: center;
+}
+@media (max-width: 767px){
+    .upvideo p{
+        font-size: 14px;
+        line-height: 1.3;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    .have-not-video{
+        max-height: 350px;
+        min-height: 350px;
+    }
+    .share-btn {
+        margin-top: 8px !important;
+    }
+    .media-body h6{
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+    .media-body a{
+        font-size: 12px;
+    }
+    .media-body h5{
+        line-height: .8;
+        margin-bottom: 6px;
+    }
+    .profile-img {
+        width: 170px !important;
+    }
+    .videobom p{
+        line-height: 1.7;
+        margin-bottom: 0;
+        font-size: 12px;
+        text-align: left;
+    }
+}
+
+// @media (max-width: 575px){
+//     .pmd-card-media video {
+//         width: 100%;
+        
+//         max-height: 450px !important;
+//         min-height: 450px !important;
+//         display: block;
+//         position: relative;
+//         visibility: initial;
+//         -o-object-fit: cover;
+//         object-fit: cover;
+//     }
+// }

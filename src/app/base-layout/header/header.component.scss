@@ -1,0 +1,198 @@
+i.fa.fa-arrow-left.mr-2 {
+    font-size: 15px;
+}
+#appModal .modal-header .close{
+    position: absolute;
+    top: 38px;
+    right: 30px;
+    font-size: 24px;
+    width: 30px;
+    height: 30px;
+    background: #e2027a;
+    border-radius: 100px;
+    text-align: center;
+    padding: 0px;
+    color: white;
+}
+#appModal .modal-dialog{
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+}
+#appModal .modal-header{
+    box-shadow: 0px 4px 8px -7px black;
+    background: #eaeaea;
+    border-radius: 0px;
+    padding: 19px;
+}
+button:focus {
+    outline: unset;
+    outline: unset;
+}
+
+.modal-header h1{
+    font-size: 33px;
+    font-weight: 600;
+    margin: 0;
+}
+.modal-body h2{
+    font-size: 20px;
+    color: #405263;
+    line-height: 1.4;
+}
+.store-icons{
+    padding: 15px;
+}
+.store-icons a{
+    margin: 10px;
+}
+
+@media (max-width:991px){
+    .navbar-toggler{
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .modal-header h1{
+        font-size: 24px;
+        font-weight: 600;
+        margin: 0;
+    }
+    #appModal .modal-header .close{
+        position: absolute;
+        top: 32px;
+        right: 30px;
+        font-size: 24px;
+        width: 30px;
+        height: 30px;
+        background: #e2027a;
+        border-radius: 100px;
+        text-align: center;
+        padding: 0px;
+        color: white;
+    }
+    .modal-body h2{
+        font-size: 19px;
+        color: #405263;
+        line-height: 1.4;
+    }
+    .store-icons img{
+        margin-bottom: 10px;
+        width: 190px;
+    }
+    .store-icons{
+        padding: 0px;
+    }
+}
+@media (max-width:575px){
+    #appModal .modal-body .col-sm-12{
+        margin: 0;
+        padding: 0;
+    }
+    .modal-header h1{
+        font-size: 19px;
+        font-weight: 600;
+        margin: 0;
+    }
+    #appModal .modal-header .close{
+        position: absolute;
+        top: 32px;
+        right: 30px;
+        font-size: 20px;
+        width: 28px;
+        height: 28px;
+        background: #e2027a;
+        border-radius: 100px;
+        text-align: center;
+        padding: 0px;
+        color: white;
+    }
+    .modal-body h2{
+        font-size: 16px;
+        color: #405263;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width:320px){
+    .modal-header h1{
+        font-size: 17px;
+        font-weight: 600;
+        margin: 0;
+    }
+    #appModal .modal-header .close{
+        position: absolute;
+        top: 33px;
+        right: 30px;
+        font-size: 17px;
+        width: 23px;
+        height: 23px;
+        background: #e2027a;
+        border-radius: 100px;
+        text-align: center;
+        padding: 0px;
+        color: white;
+    }
+    .modal-body h2{
+        font-size: 15px;
+        color: #405263;
+        line-height: 1.6;
+    }
+    .store-icons img{
+        margin-bottom: 10px;
+        width: 167px;
+    }
+}
+.navbar-toggler>.close {
+    display:inline;
+}
+.navbar-toggler.collapsed>.close, .navbar-toggler:not(.collapsed)>.navbar-toggler-icon {
+    display:none;
+}
+.container1{
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+  
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+
+
+.close i{
+    color: #fe0199;
+}
+.close{
+    opacity: 1;
+}
+.login .dropdown-menu {
+    position: absolute;
+    left: -100px;
+}
+
+@media (max-width:991px){
+    .login .dropdown-menu {
+        position: absolute;
+        left: 0;
+    }
+}

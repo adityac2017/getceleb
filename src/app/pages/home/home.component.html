@@ -1,0 +1,110 @@
+
+
+<section class="search-section py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 search-col">
+        <div class="d-flex justify-content-center" style="position: relative;">
+          <input class="w-100 searchbar" type="text" name="search" [(ngModel)]="queryString" placeholder="Search talent...">
+          <a href="javascript:void(0)" class="search_icon "><i class="fa fa-search home-search-icon " style="font-size: 22px; padding: 15px;line-height: 17px;"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="categories-section py-3">
+  <div class="container">
+    <div class="row talent-page">
+      <div class="col-md-12 Recommended-col">
+        <div class="form-group col-md-4 p-0 float-right">
+
+          <select class="form-control" (change)="onChange($event.target.value)">
+            <option selected="" value="recommended">Recommended</option>
+            <option value="desc" >Price High to Low</option>
+            <option value="asec"  >Price Low to High</option>
+            <option value="alphabetically">Alphabetical A to Z</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 col-xs-6 mb-3" *ngFor="let val of getList| filter: queryString; let i = index">
+        <div class="card shadow-sm clientAnchor" (click)="clientprofile(val)">
+          <div class="celb-img" *ngIf="val.profileImage"
+               [style.background]="'url('+ imageUrl +'' + val.profileImage + ')'"
+               [style.background-repeat]="'no-repeat'" [style.background-position-x]="'center'"
+               [style.background-position-y]="'center'" [style.background-size]="'cover'">
+              <span class="_1Vx1MsN7oW62rZaRzXTdpo"><span>{{val.vedioPrice}}Rs</span></span>
+          </div>
+          <div class="celb-img" *ngIf="!val.profileImage" [style.background]="'url(assets/img/default.png)'"
+               [style.background-repeat]="'no-repeat'" [style.background-position-x]="'center'"
+               [style.background-position-y]="'center'" [style.background-size]="'cover'">
+            <span class="_1Vx1MsN7oW62rZaRzXTdpo"><span>{{val.vedioPrice}}Rs</span></span>
+          </div>
+<!--          <div class="celb-img">-->
+<!--            <img *ngIf="val.profileImage" alt="Talent" class="card-img-top" src="{{imageUrl}}{{val.profileImage}}">-->
+<!--            <img *ngIf="!val.profileImage" alt="Talent" class="card-img-top" src="assets/img/default.png">-->
+<!--            <span class="_1Vx1MsN7oW62rZaRzXTdpo"><span>{{val.vedioPrice}}Rs</span></span>-->
+<!--          </div>-->
+          <div class="card-body py-0 px-2">
+            <h6 class="talent-client-name mb-1"><a class="text-dark" href="javascript:void(0);">{{val.clientName}}</a></h6>
+            <a class="text-dark" href="">
+              <!-- <h6 class="talent-categ">MTV Roadies REAL HEROES</h6> -->
+              <small class=""></small></a><small class=""><a class="text-secondary" href=""></a></small>
+            <div class="text-truncate">
+              <a href="https://www.instagram.com/{{val.instagramId}}" target="_blank" class=" text-center talent-insta-id"><i class="fa fa-instagram mr-2 insta-icon" aria-hidden="true"></i>{{val.instagramId}}</a>
+              <p class="mb-0"><span class="text-secondary mr-2" *ngFor="let tags of val.tag.slice(0,2)">#{{tags}}</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-rg">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">Book Details</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class=" text-center mt-4 mb-5">
+          <a class="navbar-brand" href="" target="_blank">
+            <img src="assets/images/logo.png"> GetCeleb
+          </a>
+        </div>
+        <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
+          <h5>Who is this video for?</h5>
+          <div class="container mb-4">
+            <div class="row mt-3">
+              <div class="col-sm-6">
+                <div class="book-btn mb-2 text-center">Someone else</div>
+              </div>
+              <div class="col-sm-6 m-0">
+                <div class=" book-btn text-center">My Self</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" name="" class="form-control input_user" value="" placeholder="My Name">
+          </div>
+          <div class="form-group">
+            <input type="text" name="" class="form-control input_user" value="" placeholder="Their Name">
+          </div>
+          <div class="form-group">
+            <input type="text" name="" class="form-control input_user" value="" placeholder="Description">
+          </div>
+          <div class="book-btn mb-3 mt-5 text-center" data-toggle="modal" data-target="#myModal">Book Now <i class="fa fa-inr" aria-hidden="true"></i>  45</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

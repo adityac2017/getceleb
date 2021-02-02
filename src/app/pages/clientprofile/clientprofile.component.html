@@ -1,0 +1,400 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 " *ngIf="campaignType == 1">
+        <span class="end">Ends In</span>
+      <span  id="showCountDownTime"></span>
+     
+    </div>
+  </div>
+</div>
+<!-- <div class="container timerbox mb-3">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+          <span class="end">Ends In</span>
+        <ul class="mt-3">
+          <li><span id="days"></span><p class="mb-1 mt-2 text-white">days</p></li>
+          <li><span id="hours"></span><p class="mb-1 mt-2 text-white">Hours</p></li>
+          <li><span id="minutes"></span><p class="mb-1 mt-2 text-white">Minutes</p></li>
+          <li><span id="seconds"></span><p class="mb-1 mt-2 text-white">Seconds</p></li>
+        </ul>
+       
+      </div>
+    </div>
+  </div> -->
+<section class="client-profile py-2" *ngFor="let val of getList; let i = index">
+  <div class="container">
+    <div class="row d-flex align-items-start">
+      <div class="col-lg-3 col-md-6 col-xs-6">
+        <div class="_37Znt2OxZ4qSXbDJfql7_6">
+          <div class="_3RXfN6MgkwLFnmLA9H885v text-center rounded" >
+            
+            <span *ngIf="!val.introVedio">
+            <span *ngIf="val.profileImage">
+                <img   class="user-profile-pic"  src="{{imageUrl}}{{val.profileImage}}" alt="Get a Video gift from GetCeleb celebrity {{val.clientName}}" width="100%">
+            </span>
+            <span *ngIf="!val.profileImage">
+                <img   class="user-profile-pic"  src="assets/img/default.png" width="100%">
+            </span>
+          </span>
+            <!-- <video *ngIf="val.vedio[0]['bookingFor'] == 2 && val.vedio[0]['bookingStatus'] == 3" id="profile-bio-video" class="profile-bio-videos"  controls autoplay  style="width: 100%; height: 100%; max-height: 450px; min-height: 450px; border-radius: 30px; display: block; position: relative; visibility: initial; object-fit: cover;">
+              <source src="{{videoUrl}}{{val.vedio[0]['vedio']}}" type="video/mp4">
+            </video> -->
+            
+            <video *ngIf="val.introVedio" id="profile-bio-video" class="profile-bio-videos"  controls autoplay  style="width: 100%; height: 100%; max-height: 450px; min-height: 450px; border-radius: 30px; display: block; position: relative; visibility: initial; object-fit: cover;">
+              <source src="{{videoUrl}}{{val.introVedio}}" type="video/mp4">
+            </video>
+       
+              </div>
+              <div class="_24X4kiyOde5ivnDiAWv_O"></div>
+            </div>
+      </div>
+      <div class="col-lg-9 col-md-6 col-xs-6 p-2"> 
+        <div class=" text-dark  rounded-lg">
+          <div class="card-body p-0">
+            <h2 class="client-profile-name mb-2 text-dark">{{val.clientName}} </h2>
+            <small class=""><a class="text-secondary" href=""></a></small>
+            <div class="mb-2">
+             <div class="d-flex" style="justify-content: space-between;">
+                <a href="https://www.instagram.com/{{val.instagramId}}" target="_blank" class=" text-center insta-id" style="font-size: 18px;">@{{val.instagramId}} </a>
+                <span  data-toggle="modal" data-target="#shareButtons"  class="btn  text-primary sharl text-center" (click)="openSocial(val)" style="min-height: unset;">Share With Friends</span>
+             </div>
+                  
+             
+            
+              
+              <ul class="list-inline border rounded extra-options" *ngIf="campaignType == 1">
+                <li class="list-inline-item frstlist">
+                  <div class="d-flex align-items-center">
+                    <span><img src="assets/images/phn-money.png"></span>
+                    <h6>Enter <br>to Win</h6>
+                  </div>
+                </li>
+                <li class="list-inline-item secondlst">
+                  <div class="d-flex align-items-center">
+                    <span><img src="assets/images/ticket.png"></span>
+                    <h6>10 Lucky Winners<br>are drawn </h6>
+                  </div>
+                </li>
+                <li class="list-inline-item align-items-center thirsdlst">
+                  <div class="d-flex">
+                    <span><img src="assets/images/globe.png"></span>
+                    <h6>Donations benefit <br>a great cause</h6>
+                  </div>
+                </li>
+              </ul>
+              <span class="text-dark"><h4 class="text-dark font-weight-bold mt-4">{{val.title}}</h4>
+                   	<p class="text-dark" style="font-size: 15px;">{{val.description}}</p>
+                   </span>
+                   <div class="mobbnt" *ngIf="priceTypeData == 1">
+
+                
+              <button *ngIf="isLogin && val.campaignType == 0" class="book-btn" (click)="bookClient(val)" data-toggle="modal" data-target="#bookClientModal">BOOK {{val.clientName}} FOR {{bookingAmount}} RS</button>
+              <button *ngIf="isLogin && val.campaignType == 1" class="book-btn" (click)="bookClient(val)" data-toggle="modal" data-target="#bookClientModal">Donate Rs.{{bookingAmount}} and Join the Contest</button>
+
+              <button *ngIf="!isLogin && val.campaignType == 0" class="book-btn"  data-toggle="modal" data-target="#loginModal" (click)="addId(val._id)">BOOK {{val.clientName}} FOR {{bookingAmount}} RS</button>
+              <button *ngIf="!isLogin && val.campaignType == 1" class="book-btn"  data-toggle="modal" data-target="#loginModal" (click)="addId(val._id)">Donate Rs.{{bookingAmount}} and Join the Contest</button>
+          
+            </div>
+            <div class="mobbnt" *ngIf="priceTypeData == 2">
+
+                
+              <button *ngIf="isLogin && val.campaignType == 0" class="book-btn" (click)="bookClient(val)" data-toggle="modal" data-target="#bookClientModal">BOOK {{val.clientName}} FOR {{bookingAmount}} RS</button>
+              <button *ngIf="isLogin && val.campaignType == 1" class="book-btn" (click)="bookClient(val)" data-toggle="modal" data-target="#bookClientModal">Book Your seat for Rs.{{bookingAmount}}</button>
+
+              <button *ngIf="!isLogin && val.campaignType == 0" class="book-btn"  data-toggle="modal" data-target="#loginModal" (click)="addId(val._id)">BOOK {{val.clientName}} FOR {{bookingAmount}} RS</button>
+              <button *ngIf="!isLogin && val.campaignType == 1" class="book-btn"  data-toggle="modal" data-target="#loginModal" (click)="addId(val._id)">Book Your seat for Rs.{{bookingAmount}}</button>
+          
+            </div>
+            </div>
+            <span class="mt-2 mb-2 mr-2 client-ptofile-btn shadow-sm text-dark" *ngFor="let tval of getListTag; let i = index">{{tval}} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <div id="video">
+        <video id="mp4" controls autoplay  style="width: 100%; height: 100%; max-height: 450px; min-height: 450px; border-radius: 30px; display: block; position: relative; visibility: initial; object-fit: cover;">
+          <source type="video/mp4" src="https://getceleb.in/server/uploads/1587852144759GetCeleb_1587852126612546778472774246762.mp4" >
+          </video>
+      </div>
+    </div>
+  </div>
+</div> -->
+       
+
+
+<section class="tabs" *ngIf="campaignType == 1">
+  <div class="container py-4">
+    <div class="row">
+      <div class="col-sm-12">
+        <ul class="nav nav-pills nav-stacked flex-row">
+          <li class=""><a href="#tab_a" data-toggle="pill" class="tbl active" (click)="priceType(1)">Enter Now </a></li>
+          <li><a href="#tab_b" data-toggle="pill" class="tbl" (click)="priceType(2)">Get Confirmed Seat </a></li>
+
+        </ul>
+      </div>
+      <div class="col-sm-12 tcc">
+        <div class="tab-content">
+          <div  *ngIf="priceTypeData == 1">
+            <div class="input-group qty">
+              <span class="minus btn-number" data-type="minus" data-field="" (click)="minus()">
+                <i class="fa fa-minus"></i>
+              </span>
+              <div class="indiv" style="position:relative;">
+                <div class="rsLabel">Rs.</div>
+                <div  id="quantity"  name="qty" class="input-number" value="">
+                    {{getClientData.vedioPrice}} <span class="">*</span> {{countTicket}} <span>Ticket</span>
+                  </div>
+              </div>
+              <span class="plus btn-number" data-type="plus" data-field="" (click)="plus()">
+                <i class="fa fa-plus"></i>
+              </span>
+            </div>
+            <div class="  mt-2" >
+              <button class=" chckbtn">Woohoo!!! You are joining contest with <span style="font-weight: 900 !important;">{{countTicket}} lucky </span> ticket to meet {{getClientData.clientName}}
+                </button>
+            </div>
+          </div>
+          <div  *ngIf="priceTypeData == 2">
+            <div class="input-group">
+              <div class="" style="position:relative;width: 100%;">
+                <div class="rsLabel">Rs. </div>
+                <input type="text" id="quantity1" disabled name="" class="form-control input-number1" value="{{bookingAmount}}" min="1" max="100">
+              </div>
+            </div>
+            <div class="  mt-2">
+              <button class="w-100 chckbtn">Book your seat for the Event Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="pt-4 pb-2 how">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h3>How it works</h3>
+      </div>
+    </div>
+    <div class="row" *ngIf="campaignType == 0">
+      <div class="col-sm-4 text-center mt-5">
+        <div class="">
+        <h4 style="color: #ff0099;">First</h4>
+        <p class="mb-0 text-dark">Explain your video request and Fill out </p>
+        <p class="mb-0 text-dark">who is it for i.e  Wish Happy B’day to my friend</p>
+      </div>
+      </div>
+
+      <div class="col-sm-4 text-center mt-5">
+          <div class="hwbox">
+        <h4 style="color: #ff0099;">Then</h4>
+        <p class="mb-0 text-dark">Celebrity will accept </p>
+        <p class="mb-0 text-dark">and complete your video</p>
+              </div>
+      </div>
+
+      <div class="col-sm-4 text-center mt-5">
+          <div class="hwbox">
+        <h4 style="color: #ff0099;">And finally</h4>
+        <p class="mb-0 text-dark">You can then download, share, </p>
+        <p class="mb-0 text-dark">re-watch, and re-re-watch the Video</p>
+        </div>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="campaignType == 1">
+          <div class="col-sm-4 text-center mt-5">
+            <div class="">
+            <h4 style="color: #ff0099;">First</h4>
+            <p class="mb-0 text-dark">Register to participate</p>
+            <p class="mb-0 text-dark">in this magical experience</p>
+          </div>
+          </div>
+    
+          <div class="col-sm-4 text-center mt-5">
+              <div class="hwbox">
+            <h4 style="color: #ff0099;">Then</h4>
+            <p class="mb-0 text-dark">10 Lucky winners will get a chance</p>
+            <p class="mb-0 text-dark">to Quarantine Video Party with {{getList[0].clientName}}</p>
+            </div>
+          </div>
+    
+          <div class="col-sm-4 text-center mt-5">
+              <div class="hwbox">
+            <h4 style="color: #ff0099;">And finally</h4>
+            <p class="mb-0 text-dark">Winner enjoys the experience,</p>
+            <p class="mb-0 text-dark">and part of money raised go to the NGO</p>
+            </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section *ngIf="campaignType == 1">
+      <div class="container">
+        <div class="row my-4">
+          <div class="col-sm-12 text-center">
+            <img src="{{imageUrl}}{{campaignImage}}">
+          </div>
+          <div class="col-sm-12 mt-3">
+            <h2 class="oz-section-title">who you'll help</h2>
+            <p class="text-dark" style="font-size: 15px;">{{campaignDesc}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section>
+  <div class="container">
+    <div class="row my-4">
+      <div class="col-sm-12">
+        <!-- <h3 *ngIf="getListVideos.length == 0">No Any Video</h3> -->
+        <h3>All Videos</h3>
+      </div>
+    </div>
+    <ul class="row mb-1 profile-latest-row">
+      <li class="col-lg-3 col-md-4 col-sm-6 col-xs-6" *ngFor="let val of getListVideos; let i = index" >
+        <div class="card pmd-card shadow" >
+          <div class="card-header bg-white border-0" style="padding: 13px;">
+            <div class="media-body">
+              <h6 class="card-title text-dark card-name">Requested by {{val.myName}}</h6>
+              <h6 class="card-subtitle mb-1 font-weight-bold text-dark card-name">{{val.theirName}}</h6>
+            </div>
+          </div>
+          <span *ngIf="val.bookingFor != 2 && val.bookingStatus == 3">
+                <div class="pmd-card-media">
+                  <video play="" muted="" playsinline="" class="profile-bio-video-{{i}}">
+                   <source src="{{videoUrl}}{{val.vedio}}" type="video/mp4">
+                    <!-- <source src="https://d3el26csp1xekx.cloudfront.net/v/no-wm-g0bhbZtUx.mp4" type="video/mp4"> -->
+                  </video>
+                </div>
+            </span>
+          <span *ngIf="val.bookingFor == 2 || val.bookingStatus !=3">
+                <div class="pmd-card-media text-center">
+                <img height="100px" src="assets/img/Group17052x.png" width="100px">
+                </div>
+            </span>
+          <div class="card-footer text-center client-footer">
+            <button *ngIf="val.bookingFor != 2 && val.bookingStatus == 3" type="button" class="btn pmd-btn-flat pmd-ripple-effect text-right btnPlay btnPlay-{{i}}"  (click)="play(i)" ><i class="fa fa-play card-footer-icons" aria-hidden="true"></i></button>
+            <button *ngIf="val.bookingFor != 2 && val.bookingStatus == 3" type="button" class="btn pmd-btn-flat pmd-ripple-effect text-right btnPause btnPause-{{i}}"  (click)="pause(i)"><i class="fa fa-pause card-footer-icons" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+  <div id="shareButtons" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 99999;">
+      <div class="modal-dialog modal-md">
+         <div class="modal-content">
+            <div class="modal-body">
+              <div class="social-share">
+                <ul style="display: flex; justify-content:center;margin-bottom: 0;
+                padding: 20px;">
+                 <li>
+                    <!-- <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyoutu.be%2FO6gihaoYT-0" target="_blank" class="fb"> -->
+                      <a href="https://www.facebook.com/sharer/sharer.php?u={{socialShareVideo}}" target="_blank" class="fb">
+                      <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li>
+                   <a href="https://twitter.com/intent/tweet?url={{socialShareVideo}}" target="_blank" class="twitter">
+                     <i class="fa fa-twitter" aria-hidden="true"></i>
+                   </a>
+                  </li>
+                  <li>
+                   <a href="https://api.whatsapp.com/send?phone=&text={{socialShareVideo}}" target="_blank" class="whatsapp">
+                      <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://linkedin.com/shareArticle/?url={{socialShareVideo}}" target="_blank" class="linkedin">
+                      <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                </ul>
+                <!-- <input type="text" value="{{socialShareVideo}}"  class="form-control" >  -->
+              </div>
+            </div>
+         </div>
+       </div>
+       </div>
+</section>
+
+<!-- Modal Start -->
+  <div id="bookClientModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 999999">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title"> {{campaignType == 0?'Book Details':'Booking Details'}}</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body book-modal">
+            <div class="card">
+              <h5 class="text-dark font-weight-bold text-center">{{campaignType == 0?'Who is this video for':'Who will be joining the Quarantine Party'}}?</h5>
+              <ul class="nav nav-tabs border-0 mt-3 nav-fill" id="nav-tab" role="tablist">
+                <li class="col-sm-6"><a class="nav-item active py-3 btn-block" id="nav-home-tab" data-toggle="tab" href="#someoneElse" role="tab" aria-controls="nav-home" aria-selected="true">Someone else</a></li>
+                <li class="col-sm-6"><a class="nav-item py-3 btn-block" id="nav-profile-tab" data-toggle="tab" href="#mySelf" role="tab" aria-controls="nav-profile" aria-selected="true">My self</a></li>
+              </ul>
+              <div class="tab-content px-sm-0" id="nav-tabContent">
+                <div class="card-body tab-pane fade show active" id="someoneElse">
+                  <form #sendForm="ngForm" class="text-center" style="color: #757575;" action="#!">
+                    <div class="form-group md-form" style="position: relative;">
+                      <input type="text" name="myName" [(ngModel)]="myName"  class="form-control" placeholder="My Name">
+                    </div>
+                    <div class="form-group md-form" style="position: relative;">
+                        <input type="text"  name="theirName" [(ngModel)]="theirName"  class="form-control" placeholder="Their Name">
+                      </div>
+                    <div class="form-group md-form" style="position: relative;">
+                        <!-- <input type="text"  name="description" [(ngModel)]="description"  class="form-control" placeholder="Description"> -->
+                        <textarea name="description" [(ngModel)]="description"  class="form-control" placeholder="{{campaignType == 0?'Description':'What are you bringing to the party?'}}"></textarea>
+                      </div>
+                    <button *ngIf="campaignType == 0" class="btn btn-primary btn-gradient btn-block btn-rounded" (click)="someOneElse()" type="submit">BOOK {{clientName}} FOR {{bookingAmount}} RS Book Now Rs </button>
+                    <button *ngIf="campaignType == 1 && priceTypeData == 1" class="btn btn-primary btn-gradient btn-block btn-rounded" (click)="someOneElse()" type="submit">Donate Rs.{{bookingAmount}} and Join the Contest </button>
+                    <button *ngIf="campaignType == 1 && priceTypeData == 2" class="btn btn-primary btn-gradient btn-block btn-rounded" (click)="someOneElse()" type="submit">Book Your seat for Rs. {{bookingAmount}}</button>
+                  </form>
+                </div>
+                <div class="card-body tab-pane fade" id="mySelf">
+                  <form  #sendForm1="ngForm" class="text-center" style="color: #757575;" action="#!">
+                      <div class="form-group md-form" style="position: relative;">
+                        <input type="text" name="myName" [(ngModel)]="myName1" class="form-control" placeholder="My Name">
+                      </div>
+                      <div class="form-group md-form" style="position: relative;">
+                          <!-- <input type="text"  name="description" [(ngModel)]="description1" class="form-control" placeholder="Description"> -->
+                          <textarea name="description1" [(ngModel)]="description1"  class="form-control" placeholder="{{campaignType == 0?'Description':'What are you bringing to the party?'}}"></textarea>
+                        </div>
+                      <!-- <button class="btn btn-primary btn-gradient btn-block btn-rounded" (click)="mySelf()" type="submit">Book Now Rs {{bookingAmount}}</button> -->
+                      <button *ngIf="campaignType == 0" class="btn btn-primary btn-gradient btn-block btn-rounded" (click)="mySelf()" type="submit">BOOK {{clientName}} FOR {{bookingAmount}} RS Book Now Rs </button>
+                    <button *ngIf="campaignType == 1 && priceTypeData == 1" class="btn btn-primary btn-gradient btn-block btn-rounded" (click)="mySelf()" type="submit">Donate Rs.{{bookingAmount}} and Join the Contest </button>
+                    <button *ngIf="campaignType == 1 && priceTypeData == 2" class="btn btn-primary btn-gradient btn-block btn-rounded" (click)="mySelf()" type="submit">Book Your seat for Rs. {{bookingAmount}}</button>
+                    </form>
+                </div>
+                <form method="post" action="https://securegw.paytm.in/theia/processTransaction" target="_blank" id="paytmform" ngNoForm style="display: none">
+                  <input type="hidden" name="MID" value="{{MID}}">
+                  <input type="hidden" name="ORDER_ID" value="{{ORDER_ID}}">
+                  <input type="hidden" name="CUST_ID" value="{{CUST_ID}}">
+                  <input type="hidden" name="INDUSTRY_TYPE_ID" value="{{INDUSTRY_TYPE_ID}}">
+                  <input type="hidden" name="CHANNEL_ID" value="{{CHANNEL_ID}}">
+                  <input type="hidden" name="TXN_AMOUNT" value="{{TXN_AMOUNT}}">
+                  <input type="hidden" name="WEBSITE" value="{{WEBSITE}}">
+                  <input type="hidden" name="CALLBACK_URL" value="{{CALLBACK_URL}}">
+                  <input type="hidden" name="CHECKSUMHASH" value="{{CHECKSUMHASH}}">
+                  <button class="btn signin-btn my-4 text-white font-weight-bold" (click)="testFun()"  type="button">Book Now Rs {{TXN_AMOUNT}} By Paytm </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal End -->

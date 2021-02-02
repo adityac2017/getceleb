@@ -1,0 +1,535 @@
+<!--begin home section -->
+<section class="home-section" id="home">
+
+  <div class="home-section-overlay"></div>
+
+  <!--begin container -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <h1 style="font-size: 54px;">GET FAVORITE CELEB VIDEO NOW</h1>
+        <p class="">Book a personalized video from your
+          Most-Loved celebrities
+        </p>
+        <div class="text-center">
+          <a href="javascript:void(0)" routerLink="/browse" class="external discover-btn>"><input value="Browse All"
+                                                                                                  class="contact-submit"
+                                                                                                  type="button"
+                                                                                                  style="background-color: white; color: #C53C84"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section-grey1   client-section" id="">
+  <div class="container-fluid">
+    <div class="row trending-row">
+      <div class="col-sm-12 heading-section text-center">
+        <h1 class="big">Trending</h1>
+        <h2 class="mb-4">NEW STARS on <span class="grtcelb">GetCeleb</span></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 celebcol" *ngFor="let mainVal of getList;let i = index;">
+        <div class="d-flex align-items-center" style="justify-content: space-between;">
+        <h3 class="">{{mainVal.categoryName}}</h3>
+        <h6 class="text-dark"><a href="javascript:void(0)" class="text-dark" routerLink="/browse">See all</a></h6>
+      </div>
+        <div class="">
+          <ul class="celeblist">
+            <li *ngFor="let val of mainVal.client; let i = index" class="mt-3">
+                  <div class="card clientAnchor" (click)="clientprofile(val)">
+                    <div class="celb-img" *ngIf="val.profileImage" 
+                         [style.background]="'url('+ imageUrl +'' + val.profileImage + ')'"
+                         [style.background-repeat]="'no-repeat'" [style.background-position-x]="'center'"
+                         [style.background-position-y]="'top'" [style.background-size]="'cover'"></div>
+                    <div class="celb-img" *ngIf="!val.profileImage" [style.background]="'url(assets/img/default.png)'"
+                         [style.background-repeat]="'no-repeat'" [style.background-position-x]="'center'"
+                         [style.background-position-y]="'center'" [style.background-size]="'cover'"></div>
+        
+                    <!-- <div class="_3Mko9shV8ZsHPSdLWJTaP7"><span class="_1jXJkgZHvem0VSVfk7JzIE">New</span></div> -->
+                    <div class="card-body pl-0 pt-2 pr-0 pb-1">
+                      <h6 class="client-name mb-0"><a class="text-dark" href="javascript:void(0);">{{val.clientName}}</a></h6>
+                      <p>
+                        <a href="https://www.instagram.com/{{val.instagramId}}" target="_blank" class=" text-center insta-id"><i
+                          class="fa fa-instagram insta-icon" aria-hidden="true"></i>{{val.instagramId}}</a>
+                        </p>
+                    </div>
+                  </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+    <div class="">
+      <div class="">
+   
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!--begin section-grey -->
+<section class="section-grey" id="how">
+
+  <!--begin container -->
+  <div class="container">
+
+    <!--begin row -->
+    <div class="row">
+
+      <!--begin col-md-12 -->
+      <div class="col-md-12 text-center">
+
+        <h2 class="section-title how-it-works">How It Works?</h2>
+
+        <!-- <p class="section-subtitle">Communicate with flexible tools that go where your team goes.</p> -->
+
+      </div>
+      <!--end col-md-12 -->
+
+      <!--begin col-md-4 -->
+      <div class="col-md-4">
+
+        <div class="main-services">
+          <h1>STEP 1</h1>
+          <div class="feature-pic-1 mb-3" style="background: url('assets/images/celebrities.png')"></div>
+
+          <h5>Browse our Talent,
+            Book a personalised video from Celebrity of your Choice </h5>
+
+
+          <!-- <a href="#about" class="btn-blue-line small scrool">Essentials for Designers</a> -->
+
+        </div>
+
+      </div>
+      <!--end col-md-4 -->
+
+      <!--begin col-md-4 -->
+      <div class="col-md-4">
+
+        <div class="main-services">
+          <h1>STEP 2</h1>
+          <div class="feature-pic-1 mb-3" style="background: url('assets/images/registration.png')"></div>
+
+          <h5>Explain your video request and Fill out who is it for
+            i.e Wish Happy B’day to my friend Aditya</h5>
+
+
+        </div>
+
+      </div>
+      <!--end col-md-4 -->
+
+      <!--begin col-md-4 -->
+      <div class="col-md-4">
+
+        <div class="main-services">
+          <h1>STEP 3</h1>
+          <div class="feature-pic-1 mb-3" style="background: url('assets/images/collection.png')"></div>
+
+          <h5>Celebrity will accept and complete your video
+            You can then download, share, re-watch, and re-re-watch the Video </h5>
+
+
+        </div>
+
+      </div>
+      <!--end col-md-4 -->
+
+    </div>
+    <!--end row -->
+
+  </div>
+  <!--end container -->
+
+</section>
+<!--end section-grey -->
+
+
+<!--begin section-blue -->
+<section class="section-blue" id="benefits">
+
+  <!--begin container -->
+  <div class="container">
+
+    <!--begin row -->
+    <div class="row">
+
+      <!--begin col-md-12-->
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="section-title text-center text-white">What makes a GetCeleb video gift so
+              powerful?</h2>
+
+          </div>
+        </div>
+        <div class="row pt-5">
+
+          <div class="col-md-4 text-center pb-5 mb-5 mb-md-0">
+            <img src="assets/images/benefits_longDistance.png" alt="Gift a Personalized video shoutout from a celebrity to a long distance friend">
+            <h4 class="text-white pt-3">It's an amazing gift for <br> a celebrity fan</h4>
+            <p class="text-white">It's you as the fan having this script in your head and getting your
+              favourite influencer to actually make it, or do it, or say it.</p>
+          </div>
+          <div class="col-md-4  text-center pb-5 mb-5 mb-md-0">
+            <img src="assets/images/benefits_meaningful.png" alt="A video message from a celebrity is a meaningful gift">
+            <h4 class="text-white pt-3">It's more meaningful than <br> a store-bought gift.</h4>
+            <p class="text-white">Your family and friends are going to love this personal celebrity
+              video as a gift. </p>
+          </div>
+          <div class="col-md-4 text-center pb-5 mb-5 mb-md-0">
+            <img src="assets/images/benefits_tearsOfJoy.png" alt="A message from their favorite celebrity will make them cry out of joy">
+            <h4 class="text-white pt-3">It'll make them cry <br> tears of joy.</h4>
+            <p class="text-white">No really, it happens all the time! There's a lot of love and
+              appreciation in each surprise video montage. </p>
+          </div>
+        </div>
+
+      </div>
+      <!--end col-md-12-->
+
+    </div>
+    <!--end row -->
+
+  </div>
+  <!--end container -->
+
+</section>
+<!--end section-blue -->
+
+<!--begin pricing section -->
+<section class="section-grey gift-section" id="occasion">
+
+  <!--begin container -->
+  <div class="container">
+
+    <!--begin row -->
+    <div class="row">
+
+      <!--begin col-md-12-->
+      <div class="col-md-12 text-center padding-bottom-10">
+
+        <h2 class="section-title">When to Use GetCeleb Video Gift </h2>
+
+        <p class="section-subtitle pt-5 pb-5">Personalised celebrity videos are perfect for any occasion!
+          Want to wish your sibling Happy Birthday? Roast your buddy? Or just hear from your favourite
+          talent? As long as the request is appropriate, our celebrity will be excited to complete your
+          Request!</p>
+
+      </div>
+      <!--end col-md-12 -->
+
+    </div>
+    <!--end row -->
+
+    <!--begin row -->
+    <div class="row">
+
+      <!--begin col-md-4-->
+      <div class="col-md-4">
+
+        <div class="feature-box wow fadeIn" data-wow-delay="0.25s"
+             style="visibility: visible; animation-delay: 0.25s; animation-name: fadeIn;">
+
+          <img src="assets/images/occasion_birthday.png" alt="On a birthday, gift a Personalized video message from a celebrity">
+
+          <h4>BIRTHDAY</h4>
+
+          <p>Give the most memorable personalised Video Gift to your best friend</p>
+
+        </div>
+      </div>
+      <!--end col-md-4 -->
+
+      <!--begin col-md-4-->
+      <div class="col-md-4">
+
+        <div class="feature-box wow fadeIn" data-wow-delay="0.5s"
+             style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;">
+
+          <img src="assets/images/occasion_wedding.png" alt="Celebrities wishing a couple on wedding would be a great Idea.">
+
+          <h4>WEDDING</h4>
+
+          <p>If you’re proposing your long-term girlfriend or trying to be a hopeless romantic,Let a
+            Celebrity personally do it for you!!! Because honestly? Roses die but a Video surprise will
+            be forever.</p>
+
+        </div>
+      </div>
+      <!--end col-md-4 -->
+
+      <!--begin col-md 4-->
+      <div class="col-md-4">
+
+        <div class="feature-box wow fadeIn" data-wow-delay="0.75s"
+             style="visibility: visible; animation-delay: 0.75s; animation-name: fadeIn;">
+
+          <img src="assets/images/occasion_anniversary.png" alt="A message from their favorite celebrity will increase the joy on their anniversary">
+
+          <h4>ANNIVERSARY</h4>
+
+          <p>Surprise your loved one with a “ridiculous, outlandish” video gift to celebrate your
+            anniversary, a gift better than the bottle of champagne.</p>
+
+        </div>
+      </div>
+      <!--end col-md-4 -->
+
+    </div>
+    <!--end row -->
+
+
+  </div>
+  <!--end container -->
+
+</section>
+
+<!--begin section-white -->
+<section class="section-white ">
+
+  <!--begin container -->
+  <div class="container">
+
+    <!--begin row -->
+    <div class="row">
+
+      <!--begin col-md-6 -->
+      <div class="col-md-6 col-12 padding-top-30">
+
+        <h3>Frequently Asked Questions</h3>
+
+        <!--begin accordion -->
+        <div class="accordion" id="accordionFAQ">
+
+          <!--begin card -->
+          <div class="card faq-header border-0">
+
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link  responsive-width" type="button" data-toggle="collapse"
+                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  What is GetCeleb?
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                 data-parent="#accordionFAQ">
+              <div class="card-body">
+                GetCeleb is a platform where fans can book personalized video shoutouts from their
+                favorite celebrities, athletes, or influencers. Our mission is to create the most
+                authentic and memorable fan experiences in the world.
+              </div>
+            </div>
+
+          </div>
+          <!--end card -->
+
+          <!--begin card -->
+          <div class="card border-0">
+
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed responsive-width" type="button"
+                        data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                        aria-controls="collapseTwo">
+                  What occasions are GetCeleb Videos good for?
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                 data-parent="#accordionFAQ">
+              <div class="card-body">
+                GetCeleb Videos are perfect for any occasion! Want to wish your friend Happy
+                Birthday? Roast your buddy? Or just hear from your favorite talent? As long as the
+                request is appropriate, talent will be excited to do your video!
+              </div>
+            </div>
+
+          </div>
+          <!--end card -->
+
+          <!--begin card -->
+          <div class="card border-0">
+
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed  responsive-width" type="button"
+                        data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                        aria-controls="collapseThree">
+                  How will I receive my video once it’s completed?
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                 data-parent="#accordionFAQ">
+              <div class="card-body">
+                It will be reflected into your account section of our App. Woohoo!!!
+              </div>
+            </div>
+
+          </div>
+          <!--end card -->
+
+          <!--begin card -->
+          <div class="card border-0">
+
+            <div class="card-header" id="headingFour">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed  responsive-width" type="button"
+                        data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
+                        aria-controls="collapseFour">
+                  Is the celebrity guaranteed to make my requested video ?
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                 data-parent="#accordionFAQ">
+              <div class="card-body">
+                It is up to the celebrity to accept your request and create the video. You can help
+                him/her out by making sure you’ve provided the necessary information and by making
+                an appropriate request, but we cannot guarantee they will make your video. If your
+                request is not fulfilled or expires, we will refund you the full amount and suggest
+                trying again at a later date.
+              </div>
+            </div>
+
+          </div>
+          <!--end card -->
+          <!--begin card -->
+          <div class="card border-0">
+            <div class="card-header" id="headingFive">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed  responsive-width" type="button"
+                        data-toggle="collapse" data-target="#collapseFive" aria-expanded="false"
+                        aria-controls="collapseFive">
+                  What if celebrity doesn't accept my request?
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
+                 data-parent="#accordionFAQ">
+              <div class="card-body">
+                Our dedicated team try very hard for each request to get fulfilled. But in some
+                cases, your video request will be rejected if it is inappropriate, explicit or will
+                damage the talent’s image. In such case full amount will be refunded to your account
+                within 24-48Hours.
+              </div>
+            </div>
+
+          </div>
+          <!--end card -->
+          <!--begin card -->
+          <div class="card border-0">
+
+            <div class="card-header" id="headingSix">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed  responsive-width" type="button"
+                        data-toggle="collapse" data-target="#collapseSix" aria-expanded="false"
+                        aria-controls="collapseSix">
+                  Do I get to keep my Video?
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
+                 data-parent="#accordionFAQ">
+              <div class="card-body">
+                Of course! Download your Video message, share it across your social media pages and
+                save it for life! Once it is sent to your account – it is yours forever.
+              </div>
+            </div>
+
+          </div>
+          <!--end card -->
+
+        </div>
+        <!--end accordion -->
+
+      </div>
+      <!--end col-md-6-->
+
+      <!--begin col-md-6-->
+      <div class="col-md-6 wow slideInRight" data-wow-delay="0.25s"
+           style="visibility: visible; animation-delay: 0.25s; animation-name: slideInRight;">
+
+        <img src="assets/images/faq.png" class="width-100 box-shadow img-responsive" alt="Your celebrity video gift is just a click away.">
+
+      </div>
+      <!--end col-md-6-->
+
+    </div>
+    <!--end row -->
+
+  </div>
+  <!--end container -->
+
+</section>
+<!--end section-white -->
+
+
+<!--begin contact -->
+<section class="section-grey section-top-border" id="booknow">
+
+  <!--begin container-->
+  <div class="container">
+
+    <!--begin row-->
+    <div class="row">
+
+      <!--begin col-md-6 -->
+      <div class="col-md-8 offset-md-2">
+        <h2 class="section-title text-center coming-soon">Coming Soon!</h2>
+        <p class="text-center pb-5"> If you are a celebrity, influencer or if you want to your favourite
+          celebrity to be here, just enter the details below</p>
+        <!--begin success message -->
+        <p class="contact_success_box text-center" style="display:none;text-align: center;width: 100%">We
+          received your message and you'll
+          hear from
+          us soon. Thank You!</p>
+        <!--end success message -->
+        <!--begin contact form -->
+        <form id="contact-form" class="contact" action="php/contact.php" method="POST">
+          <input class="contact-input white-input" required="" id="name" name="name" placeholder="Celebrity Name*"
+                 type="text">
+          <input class="contact-input white-input" required="" id="instaId" name="insta"
+                 placeholder="Celebrity Instagram ID *"
+                 type="text">
+          <input class="contact-input white-input" required="" id="email" name="email"
+                 placeholder="Your Contact Info (Email)*"
+                 type="email">
+          <div class="col-md-12 text-center pt-4">
+            <input value="Send Message" id="submit-button" class="contact-submit" type="button" onclick="contactUs()">
+          </div>
+          <h4 class="text-center pt-5">We will contact you soon! </h4>
+
+        </form>
+        <!--end contact form -->
+
+      </div>
+      <!--end col-md-6 -->
+
+
+    </div>
+    <!--end row-->
+
+  </div>
+  <!--end container-->
+
+</section>
+<!--end contact-->
+
+
+
